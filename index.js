@@ -8,6 +8,14 @@ const app = express();
 //Mongo atlas connection string
 const mongoURI =' mongodb+srv://veroproduction4:sujalapi@cluster4.rmdge.mongodb.net/';
 
+//connect to mongodb Atlas 
+mongoose. connect(mongoURI)
+.then(()=>{
+    console.log('connected to mongodb');
+})
+.catch((error)=>{('error conecting to mongoDb',error);
+});
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
