@@ -3,20 +3,43 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const fs = require('fs');
+const path = require('path');
 dotenv.config({path: './config.env'});
+
+
+//Initialize Mongo Server
+const InitiateMongoServer = require('./src/database/db');
+InitiateMongoServer();
 
 // Initialize the express app
 const app = express();
 
 
-// Connect to MongoDB Atlas
-mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-    console.log('Connected to MongoDB');
-})
-.catch((error) => {
-    console.log('Error connecting to MongoDB:', error);
-});
+
+//Read data from recipes.json
+const data = JSON.parse(fs.readFileSync('./recipes.json','utf-8'));
+console.log(data);
+//Function to import recipes                from JSON
+const importRecipe = async (req, res) => {
+    try {
+        const count = await Recipe.countDocuments();
+        if (count === 0) {
+            
+            await Recipe.create(data);
+            console.log('Data successfully imported to MongoDb');
+            res.status(200).send('Data successfully imported');
+        } else {
+            console.log('Data already exists in the database, skipping import');
+            res.status(200).send('Data already exists, skipping import');
+        }
+    } catch (e) {
+        console.error('Error importing data',e);
+        
+    }
+};
+
+
 
 // Middleware
 app.use(express.json());
