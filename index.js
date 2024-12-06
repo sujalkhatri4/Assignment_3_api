@@ -1,19 +1,21 @@
-//import express
+// Import express
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-// initialize the express app
+
+// Initialize the express app
 const app = express();
 
-//Mongo atlas connection string
-const mongoURI =' mongodb+srv://veroproduction4:sujalapi@cluster4.rmdge.mongodb.net/';
+// Mongo Atlas connection string 
+const mongoURI = 'mongodb+srv://veroproduction4:sujalapi@cluster4.rmdge.mongodb.net/';
 
-//connect to mongodb Atlas 
-mongoose. connect(mongoURI)
-.then(()=>{
-    console.log('connected to mongodb');
+// Connect to MongoDB Atlas
+mongoose.connect(mongoURI)
+.then(() => {
+    console.log('Connected to MongoDB');
 })
-.catch((error)=>{('error conecting to mongoDb',error);
+.catch((error) => {
+    console.log('Error connecting to MongoDB:', error);
 });
 
 // Middleware
@@ -25,7 +27,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the first program of Node.js Express');
 });
 
-//set the port
+// Set the port
 const port = 8000;
 
 // Start the server
