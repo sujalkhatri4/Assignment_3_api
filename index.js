@@ -2,13 +2,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+dotenv.config({path: './config.env'});
 
 // Initialize the express app
 const app = express();
 
 
 // Connect to MongoDB Atlas
-mongoose.connect(mongoURI)
+mongoose.connect(process.env.MONGO_URI)
 .then(() => {
     console.log('Connected to MongoDB');
 })
