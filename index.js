@@ -1,8 +1,13 @@
 //import express
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 // initialize the express app
 const app = express();
+
+//Mongo atlas connection string
+const mongoURI =' mongodb+srv://veroproduction4:sujalapi@cluster4.rmdge.mongodb.net/';
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
