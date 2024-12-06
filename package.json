@@ -1,0 +1,24 @@
+{
+  "name": "assignment_3_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujalkhatri4/Assignment_3_api.git"
+  },
+  "author": "sujal khatri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujalkhatri4/Assignment_3_api/issues"
+  },
+  "homepage": "https://github.com/sujalkhatri4/Assignment_3_api#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.7"
+  }
+}
