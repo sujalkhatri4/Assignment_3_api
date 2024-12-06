@@ -19,6 +19,7 @@
   "homepage": "https://github.com/sujalkhatri4/Assignment_3_api#readme",
   "dependencies": {
     "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.8.4",
     "nodemon": "^3.1.7"

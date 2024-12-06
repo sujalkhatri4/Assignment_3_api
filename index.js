@@ -6,8 +6,6 @@ const bodyParser = require('body-parser');
 // Initialize the express app
 const app = express();
 
-// Mongo Atlas connection string 
-const mongoURI = 'mongodb+srv://veroproduction4:sujalapi@cluster4.rmdge.mongodb.net/';
 
 // Connect to MongoDB Atlas
 mongoose.connect(mongoURI)
